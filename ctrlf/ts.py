@@ -1,0 +1,2 @@
+def tsmain():
+    print('ts')

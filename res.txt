@@ -1,0 +1,6 @@
+found files...
+ctrlf-0.0.1-py3.6.egg  -->  C:\Users\Ahmed\Desktop\py\ctrlf\dist
+found directories...
+ctrlf --> C:\Users\Ahmed\Desktop\py\ctrlf\build\lib
+ctrlf --> C:\Users\Ahmed\Desktop\py\ctrlf
+ctrlf.egg-info --> C:\Users\Ahmed\Desktop\py\ctrlf
