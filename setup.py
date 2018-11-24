@@ -3,9 +3,11 @@ import setuptools
 
 setuptools.setup(
     name="ctrlf",
-    version="0.0.1",
+    version="0.0.2",
     author="theunderdog",
     author_email="ahmedbonumstelio@gmail.com",
+    packages=setuptools.find_packages(),
+    description="A better solution to find files/directories on your computer uesing their name or regular expression",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
