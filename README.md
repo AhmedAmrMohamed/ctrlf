@@ -14,12 +14,12 @@ also you can use regular expression as a patter to search for.
 
     
       `ctrlf -o <match_pattern> <path> `   
-      :: find all that matches a <match_pattern> in <path> if <path> is not given the current directory is used
+      :: find all that matches a `<match_pattern>` in `<path>` if `<path>` is not given the current directory is used
 
 
       `ctrlf -d <match_pattern> <reject_pattern <path>`  
-      :: find all that matches a <match_pattern> in <path> and doesnot match  
-         <reject_pattern> if <path> is not given the current directory is
+      :: find all that matches a `<match_pattern>` in `<path>` and doesnot match  
+         `<reject_pattern>` if `<path>` is not given the current directory is
 
       `ctrlf -h`  
       :: show this help message
