@@ -1,2 +1,2 @@
-def tsmain():
-    print('ts')
+import os
+print(os.sys.argv)

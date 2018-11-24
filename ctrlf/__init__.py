@@ -1,17 +1,11 @@
 import os
 import re
 class main_class():
-    def __init__(self,match,path = None,dmatch=None):
+    def __init__(self,match,path = None,reject=None):
         if not path:
-            # path    = os.path.splitdrive(os.getcwd())[0] + '\\'
             path  = os.getcwd()
         os.chdir(path)
-        print(os.getcwd())
-        # assert len(os.sys.argv) > 1 , "enter the file/dir name or rexgex"
         pattern = re.compile(match)
-        if dmatch:
-            dpattern = re.compile(dmatch)
-            dmatch   = True
         try:
             os.sys.stdout  = open('res.txt',"w")
             ok = True
@@ -19,31 +13,30 @@ class main_class():
             print(exc)
             ok = False
         dirs = set()
-        print('found files...')
+        files= set()
         for dirpath,dirnames,filenames in os.walk(os.getcwd()):
             for filename in filenames:
-                if re.match(pattern,filename):
-                    if not dmatch:
-                        print(filename,dirpath,sep = '  -->  ')
-                    else:
-                        if not re.match(dpattern,filename):
-                            print(filename,dirpath,sep = '  -->  ')
+                if re.search(pattern,filename):
+                    files.add((filename,dirpath))
 
             for dirname in dirnames:
-                if re.match(pattern,dirname):
-                    if not dmatch:
-                        dirs.add("{} --> {}".format(dirname,dirpath))
-                    else:
-                        if not re.match(dpattern,dirname):
-                            dirs.add("{} --> {}".format(dirname,dirpath))
+                if re.search(pattern,dirname):
+                    dirs.add((dirname,dirpath))
 
+        if reject:
+            self.reject = re.compile(reject)
+            rejfun      = lambda  tupl :not re.search(self.reject,tupl[0])
+            files       = filter(rejfun,files)
+            dirs        = filter(rejfun,dirs)
+
+        print('found files')
+        for nm in files:
+            print('{} --> {}'.format(nm[0],nm[1]))
         print('found directories...')
-        for dir_ in dirs:
-            print(dir_)
+        for nm in dirs:
+            print('{} --> {}'.format(nm[0],nm[1]))
         if ok:
             os.sys.stdout.close()
             os.system("res.txt")
 
 
-# main_class('comics2pdf',r'c:\users\ahmed\desktop\py')
-main_class('comics2pdf',r'c:\users\ahmed\desktop\py','\w+$.egg')

@@ -13,6 +13,6 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
     entry_points = {
-        'console_scripts':['ctrlf=ctrlf.command:main']
+        'console_scripts':['ctrlf=ctrlf.command:command_main']
         }
 )

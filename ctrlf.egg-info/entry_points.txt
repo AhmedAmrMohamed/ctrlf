@@ -1,4 +1,3 @@
 [console_scripts]
-ctrlf --f = ctrlf.command:ts
-ctrlf = ctrlf.command:main
+ctrlf = ctrlf.command:command_main
 
